@@ -1,0 +1,285 @@
+/* Patrón de grid para fondo */
+.services-grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Animaciones personalizadas para servicios */
+@keyframes float-slow {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-30px) rotate(5deg); 
+  }
+}
+
+@keyframes float-delay {
+  0%, 100% { 
+    transform: translateY(0px) rotate(0deg); 
+  }
+  50% { 
+    transform: translateY(-25px) rotate(-3deg); 
+  }
+}
+
+@keyframes spin-very-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-float-slow {
+  animation: float-slow 12s ease-in-out infinite;
+}
+
+.animate-float-delay {
+  animation: float-delay 10s ease-in-out infinite 2s;
+}
+
+.animate-spin-very-slow {
+  animation: spin-very-slow 30s linear infinite;
+}
+
+/* Efectos de las tarjetas de servicios */
+.service-card {
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 25px 50px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(255, 193, 7, 0.2),
+    0 0 30px rgba(255, 193, 7, 0.1);
+}
+
+/* Efecto de brillo que atraviesa las tarjetas */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg, 
+    transparent, 
+    rgba(255, 193, 7, 0.1), 
+    transparent
+  );
+  transition: left 0.8s ease;
+  border-radius: 1.5rem;
+  z-index: 1;
+}
+
+.service-card:hover::before {
+  left: 100%;
+}
+
+/* Efecto de partículas en hover */
+.service-card:hover {
+  position: relative;
+}
+
+.service-card:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 50% 50%, 
+    rgba(255, 193, 7, 0.1) 0%, 
+    transparent 70%
+  );
+  border-radius: 1.5rem;
+  animation: pulse-glow 2s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    opacity: 0; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 1; 
+    transform: scale(1.02); 
+  }
+}
+
+/* Efectos de los iconos */
+.service-card .w-16.h-16 {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-card .w-16.h-16::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    from 0deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  opacity: 0;
+  transition: all 0.5s ease;
+  border-radius: inherit;
+}
+
+.service-card:hover .w-16.h-16::before {
+  opacity: 1;
+  animation: rotate-shine 2s linear infinite;
+}
+
+@keyframes rotate-shine {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Efectos de los badges */
+.service-card .absolute.top-6.right-6 {
+  animation: float-badge 4s ease-in-out infinite;
+}
+
+@keyframes float-badge {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-5px) rotate(2deg); }
+}
+
+/* Efectos de las características adicionales */
+.w-20.h-20 {
+  position: relative;
+  overflow: hidden;
+}
+
+.w-20.h-20::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg, 
+    transparent 30%, 
+    rgba(255, 255, 255, 0.2) 50%, 
+    transparent 70%
+  );
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+  border-radius: inherit;
+}
+
+.group:hover .w-20.h-20::after {
+  transform: translateX(100%);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .services-grid-pattern {
+    background-size: 40px 40px;
+  }
+  
+  .service-card {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .services-grid-pattern {
+    background-size: 30px 30px;
+  }
+  
+  /* Simplificar animaciones en móvil */
+  .animate-float-slow,
+  .animate-float-delay,
+  .animate-spin-very-slow {
+    animation-duration: 20s;
+  }
+  
+  .service-card::before,
+  .service-card::after {
+    display: none;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-4px);
+  }
+}
+
+@media (max-width: 640px) {
+  /* Ajustar grid en móviles */
+  .grid.md\\:grid-cols-2.lg\\:grid-cols-3 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .grid.md\\:grid-cols-2.lg\\:grid-cols-4 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  /* Reducir padding en móviles */
+  .service-card {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Stack características en móviles pequeños */
+  .grid.md\\:grid-cols-2.lg\\:grid-cols-4 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  /* Ajustar tamaños de texto */
+  .text-4xl.md\\:text-6xl.lg\\:text-7xl {
+    font-size: 2.5rem !important;
+  }
+  
+  .text-xl.md\\:text-2xl {
+    font-size: 1.125rem !important;
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float-slow,
+  .animate-float-delay,
+  .animate-spin-very-slow,
+  .service-card,
+  .w-16.h-16::before,
+  .w-20.h-20::after,
+  .float-badge {
+    animation: none;
+    transition: none;
+  }
+  
+  .service-card:hover {
+    transform: none;
+  }
+}
+
+/* Estados de focus */
+.service-card:focus-within {
+  outline: 2px solid #fbbf24;
+  outline-offset: 4px;
+}
+
+/* Gradientes mejorados */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}

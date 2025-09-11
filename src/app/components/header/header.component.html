@@ -1,0 +1,105 @@
+<header class="bg-slate-900/95 backdrop-blur-xl shadow-2xl w-full sticky top-0 z-50 border-b border-slate-700/50">
+  <div class="container mx-auto flex items-center justify-between p-4 lg:px-8">
+    
+    <!-- Logo y nombre -->
+    <div class="flex items-center space-x-4 group">
+      <!-- Logo real -->
+      <div class="relative">
+        <div class="absolute inset-0 bg-gradient-to-r from-yellow-400/30 to-orange-400/30 rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition-all duration-500"></div>
+        <img 
+          src="logoConcord.png" 
+          alt="Concord Logo" 
+          class="w-12 h-12 md:w-14 md:h-14 relative z-10 rounded-2xl shadow-xl transform group-hover:scale-110 transition-all duration-300 filter brightness-110"
+        >
+      </div>
+      
+      <!-- Nombre de la marca -->
+      <div class="space-y-1">
+        <h1 class="text-xl md:text-2xl font-black text-transparent bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-500 bg-clip-text group-hover:from-yellow-300 group-hover:to-orange-300 transition-all duration-300">
+          Concord
+        </h1>
+        <div class="hidden md:block text-xs text-slate-400 font-medium tracking-wide">
+          PREMIUM TAXI
+        </div>
+      </div>
+    </div>
+
+    <!-- Navegación Desktop -->
+    <nav class="hidden lg:flex items-center space-x-1 bg-slate-800/50 rounded-2xl p-2 backdrop-blur-sm border border-slate-700/50">
+      <a href="#" class="nav-link px-6 py-3 text-slate-300 hover:text-white transition-all duration-300 font-medium relative rounded-xl group">
+        <span class="relative z-10">Inicio</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+      </a>
+      <a href="#" class="nav-link px-6 py-3 text-slate-300 hover:text-white transition-all duration-300 font-medium relative rounded-xl group">
+        <span class="relative z-10">Servicios</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+      </a>
+      <a href="#" class="nav-link px-6 py-3 text-slate-300 hover:text-white transition-all duration-300 font-medium relative rounded-xl group">
+        <span class="relative z-10">Flota</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+      </a>
+      <a href="#" class="nav-link px-6 py-3 text-slate-300 hover:text-white transition-all duration-300 font-medium relative rounded-xl group">
+        <span class="relative z-10">Contacto</span>
+        <div class="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300"></div>
+      </a>
+    </nav>
+
+    <!-- Botón CTA y menú móvil -->
+    <div class="flex items-center space-x-4">
+      <!-- Botón CTA (hidden en móvil pequeño) -->
+      <button class="hidden sm:block bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold px-6 py-3 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-yellow-500/25 text-sm">
+        Reservar
+      </button>
+      
+      <!-- Estado online -->
+      <div class="hidden md:flex items-center space-x-2 bg-green-500/20 px-3 py-2 rounded-full border border-green-500/30">
+        <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+        <span class="text-green-400 text-xs font-medium">Online</span>
+      </div>
+      
+      <!-- Botón de menú móvil -->
+      <button class="lg:hidden text-slate-300 hover:text-white transition-colors p-3 rounded-xl hover:bg-slate-800/50" id="mobile-menu-btn">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú móvil -->
+  <div class="lg:hidden mobile-menu bg-slate-900/98 backdrop-blur-xl border-t border-slate-700/50" id="mobile-menu">
+    <div class="container mx-auto px-6 py-6">
+      <!-- Links de navegación -->
+      <div class="space-y-2 mb-6">
+        <a href="#" class="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors font-medium py-3 px-4 rounded-xl hover:bg-slate-800/50 group">
+          <div class="w-2 h-2 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <span>Inicio</span>
+        </a>
+        <a href="#" class="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors font-medium py-3 px-4 rounded-xl hover:bg-slate-800/50 group">
+          <div class="w-2 h-2 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <span>Servicios</span>
+        </a>
+        <a href="#" class="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors font-medium py-3 px-4 rounded-xl hover:bg-slate-800/50 group">
+          <div class="w-2 h-2 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <span>Flota</span>
+        </a>
+        <a href="#" class="flex items-center space-x-3 text-slate-300 hover:text-white transition-colors font-medium py-3 px-4 rounded-xl hover:bg-slate-800/50 group">
+          <div class="w-2 h-2 bg-yellow-400 rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+          <span>Contacto</span>
+        </a>
+      </div>
+      
+      <!-- Botones móviles -->
+      <div class="space-y-3 pt-6 border-t border-slate-700/50">
+        <button class="w-full bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold py-4 rounded-xl hover:scale-105 transition-all duration-300 shadow-lg">
+          Reservar Viaje
+        </button>
+        
+        <div class="flex items-center justify-center space-x-2 bg-green-500/20 py-3 rounded-xl border border-green-500/30">
+          <div class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+          <span class="text-green-400 font-medium">Disponible 24/7</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,309 @@
+/* Fuente Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Estilos específicos para el componente fleet */
+:host {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Sección de flota */
+.fleet-section {
+  background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Patrón de grid */
+.grid-pattern {
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  width: 100%;
+  height: 100%;
+}
+
+/* Animaciones personalizadas */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(255, 193, 7, 0.3); }
+  50% { box-shadow: 0 0 40px rgba(255, 193, 7, 0.6), 0 0 60px rgba(255, 193, 7, 0.3); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 20s linear infinite;
+}
+
+/* Cards de vehículos */
+.vehicle-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.vehicle-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.8s;
+}
+
+.vehicle-card:hover::before {
+  left: 100%;
+}
+
+.vehicle-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  border-color: rgba(255, 193, 7, 0.3);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(255, 193, 7, 0.2);
+}
+
+/* Efectos de imagen */
+.vehicle-image {
+  transition: all 0.4s ease;
+  filter: brightness(1.1) saturate(1.1);
+}
+
+.vehicle-card:hover .vehicle-image {
+  transform: scale(1.05);
+  filter: brightness(1.2) saturate(1.2) drop-shadow(0 10px 20px rgba(255, 193, 7, 0.3));
+}
+
+/* Badges de características */
+.feature-badge {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.feature-badge:hover {
+  background: rgba(255, 193, 7, 0.2);
+  border-color: rgba(255, 193, 7, 0.4);
+}
+
+/* Botones */
+.btn-primary {
+  background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Partículas decorativas */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+.particle-1 {
+  width: 8px;
+  height: 8px;
+  background: #ffd700;
+  top: 10%;
+  left: 5%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.particle-2 {
+  width: 6px;
+  height: 6px;
+  background: #ff6b6b;
+  top: 20%;
+  right: 10%;
+  animation: float 6s ease-in-out infinite 1s;
+}
+
+.particle-3 {
+  width: 10px;
+  height: 10px;
+  background: #4ecdc4;
+  bottom: 15%;
+  left: 8%;
+  animation: float 7s ease-in-out infinite 2s;
+}
+
+/* Mejoras de backdrop blur */
+@supports (backdrop-filter: blur(20px)) {
+  .backdrop-blur-sm {
+    backdrop-filter: blur(4px) saturate(180%);
+  }
+  
+  .vehicle-card {
+    backdrop-filter: blur(20px) saturate(180%);
+  }
+}
+
+/* Gradientes suaves */
+.bg-clip-text {
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  :host {
+    font-size: 14px;
+  }
+
+  .vehicle-card:hover {
+    transform: translateY(-5px) scale(1.01);
+  }
+  
+  .grid-pattern {
+    background-size: 25px 25px;
+  }
+
+  /* Simplificar efectos en móvil */
+  .vehicle-card::before {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .particle {
+    display: none;
+  }
+
+  /* Ajustar tamaños de texto en móvil */
+  h2 {
+    font-size: 2.5rem !important;
+  }
+
+  .text-2xl {
+    font-size: 1.25rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  /* Ajustar espaciado en móviles muy pequeños */
+  .gap-8 {
+    gap: 1.5rem !important;
+  }
+
+  .space-y-4 > * + * {
+    margin-top: 1rem !important;
+  }
+
+  /* Ocultar elementos decorativos no esenciales */
+  .absolute.top-16.right-20,
+  .absolute.bottom-20.left-16 {
+    display: none;
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-rotate-slow,
+  .animate-glow-pulse,
+  .animate-slide-in-up,
+  .vehicle-card,
+  .vehicle-image,
+  .btn-primary,
+  .transition-all {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Estados de focus para accesibilidad */
+button:focus {
+  outline: 2px solid #fbbf24;
+  outline-offset: 2px;
+}
+
+/* Efectos de hover mejorados para botones */
+.btn-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(251, 191, 36, 0.4);
+}
+
+/* Animaciones de entrada para las tarjetas */
+.vehicle-card {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.vehicle-card.animate-slide-in-up {
+  opacity: 1;
+  transform: translateY(0);
+}
