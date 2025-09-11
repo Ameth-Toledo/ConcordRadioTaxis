@@ -30,11 +30,33 @@
               "src/styles.css"
             ],
             "scripts": [],
-            "budgets": []
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "2MB",
+                "maximumError": "5MB"
+              },
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "10KB",
+                "maximumError": "15KB"
+              }
+            ]
           },
           "configurations": {
             "production": {
-              "budgets": [],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2MB",
+                  "maximumError": "5MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "10KB",
+                  "maximumError": "15KB"
+                }
+              ],
               "outputHashing": "all"
             },
             "development": {
