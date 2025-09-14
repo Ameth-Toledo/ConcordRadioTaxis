@@ -1,20 +1,9 @@
-/* Fuente Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-/* Estilos específicos para el componente fleet */
-:host {
-  display: block;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Sección de flota */
 .fleet-section {
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 100%);
   position: relative;
   overflow: hidden;
 }
 
-/* Patrón de grid */
 .grid-pattern {
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
@@ -24,7 +13,6 @@
   height: 100%;
 }
 
-/* Animaciones personalizadas */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-15px); }
@@ -67,7 +55,6 @@
   animation: rotate-slow 20s linear infinite;
 }
 
-/* Cards de vehículos */
 .vehicle-card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px);
@@ -100,7 +87,6 @@
     0 0 30px rgba(255, 193, 7, 0.2);
 }
 
-/* Efectos de imagen */
 .vehicle-image {
   transition: all 0.4s ease;
   filter: brightness(1.1) saturate(1.1);
@@ -111,7 +97,6 @@
   filter: brightness(1.2) saturate(1.2) drop-shadow(0 10px 20px rgba(255, 193, 7, 0.3));
 }
 
-/* Badges de características */
 .feature-badge {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
@@ -124,7 +109,6 @@
   border-color: rgba(255, 193, 7, 0.4);
 }
 
-/* Botones */
 .btn-primary {
   background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
   position: relative;
@@ -149,7 +133,6 @@
   height: 300px;
 }
 
-/* Partículas decorativas */
 .particle {
   position: absolute;
   border-radius: 50%;
@@ -184,7 +167,6 @@
   animation: float 7s ease-in-out infinite 2s;
 }
 
-/* Mejoras de backdrop blur */
 @supports (backdrop-filter: blur(20px)) {
   .backdrop-blur-sm {
     backdrop-filter: blur(4px) saturate(180%);
@@ -195,13 +177,11 @@
   }
 }
 
-/* Gradientes suaves */
 .bg-clip-text {
   -webkit-background-clip: text;
   background-clip: text;
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
   .container {
     padding-left: 1.5rem;
@@ -222,7 +202,6 @@
     background-size: 25px 25px;
   }
 
-  /* Simplificar efectos en móvil */
   .vehicle-card::before {
     display: none;
   }
@@ -238,7 +217,6 @@
     display: none;
   }
 
-  /* Ajustar tamaños de texto en móvil */
   h2 {
     font-size: 2.5rem !important;
   }
@@ -254,7 +232,6 @@
     padding-right: 0.75rem;
   }
 
-  /* Ajustar espaciado en móviles muy pequeños */
   .gap-8 {
     gap: 1.5rem !important;
   }
@@ -263,14 +240,12 @@
     margin-top: 1rem !important;
   }
 
-  /* Ocultar elementos decorativos no esenciales */
   .absolute.top-16.right-20,
   .absolute.bottom-20.left-16 {
     display: none;
   }
 }
 
-/* Mejoras de accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
   .animate-rotate-slow,
@@ -285,19 +260,16 @@
   }
 }
 
-/* Estados de focus para accesibilidad */
 button:focus {
   outline: 2px solid #fbbf24;
   outline-offset: 2px;
 }
 
-/* Efectos de hover mejorados para botones */
 .btn-primary:hover {
   transform: scale(1.05);
   box-shadow: 0 10px 25px rgba(251, 191, 36, 0.4);
 }
 
-/* Animaciones de entrada para las tarjetas */
 .vehicle-card {
   opacity: 0;
   transform: translateY(50px);

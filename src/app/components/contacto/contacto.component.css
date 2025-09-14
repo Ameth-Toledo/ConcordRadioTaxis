@@ -1,20 +1,9 @@
-/* Fuente Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-/* Estilos específicos para el componente contacto */
-:host {
-  display: block;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Sección de contacto */
 .contact-section {
   background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 25%, #16213e 50%, #0f3460 100%);
   position: relative;
   overflow: hidden;
 }
 
-/* Patrón de grid */
 .grid-pattern {
   background-image: 
     linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
@@ -24,7 +13,6 @@
   height: 100%;
 }
 
-/* Animaciones personalizadas */
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-20px); }
@@ -73,7 +61,6 @@
   animation: pulse-glow 3s ease-in-out infinite;
 }
 
-/* Cards principales */
 .contact-form-card,
 .contact-info-card,
 .info-card {
@@ -91,7 +78,6 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
-/* Card de emergencia */
 .emergency-card {
   background: rgba(239, 68, 68, 0.05);
   backdrop-filter: blur(20px);
@@ -104,7 +90,6 @@
   box-shadow: 0 20px 40px rgba(239, 68, 68, 0.2);
 }
 
-/* Formulario */
 .form-group {
   position: relative;
 }
@@ -144,7 +129,6 @@
   border-color: rgba(239, 68, 68, 0.5);
 }
 
-/* Botones */
 .btn-primary {
   background: linear-gradient(45deg, #fbbf24, #f59e0b, #d97706);
   position: relative;
@@ -176,7 +160,6 @@
   transform: scale(0.98);
 }
 
-/* Botones de contacto */
 .contact-btn {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
@@ -189,7 +172,6 @@
   transform: translateY(-2px);
 }
 
-/* Cards de características */
 .feature-card {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(15px);
@@ -203,7 +185,6 @@
   transform: translateY(-5px);
 }
 
-/* Partículas decorativas */
 .particle {
   position: absolute;
   border-radius: 50%;
@@ -247,7 +228,6 @@
   animation: float 5s ease-in-out infinite 0.5s;
 }
 
-/* Efectos de entrada */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(50px);
@@ -258,13 +238,11 @@
   transform: translateY(0);
 }
 
-/* Gradientes suaves */
 .bg-clip-text {
   -webkit-background-clip: text;
   background-clip: text;
 }
 
-/* Mejoras de backdrop blur */
 @supports (backdrop-filter: blur(20px)) {
   .backdrop-blur-sm {
     backdrop-filter: blur(4px) saturate(180%);
@@ -281,7 +259,6 @@
   }
 }
 
-/* Estados de validación visual */
 .form-input.ng-valid.ng-touched {
   border-color: rgba(34, 197, 94, 0.5);
 }
@@ -296,7 +273,6 @@
   10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
 }
 
-/* Responsive Design */
 @media (max-width: 1024px) {
   .container {
     padding-left: 1.5rem;
@@ -337,7 +313,6 @@
     font-size: 1.25rem !important;
   }
 
-  /* Simplificar animaciones en móvil */
   .contact-form-card:hover,
   .contact-info-card:hover,
   .info-card:hover,
@@ -363,14 +338,12 @@
     padding: 1.25rem;
   }
 
-  /* Ocultar elementos decorativos */
   .absolute.top-20.left-20,
   .absolute.bottom-16.right-20,
   .absolute.top-1\/3.right-10 {
     display: none;
   }
 
-  /* Ajustar espaciado */
   .gap-16 {
     gap: 2rem !important;
   }
@@ -400,14 +373,12 @@
     padding: 0.875rem;
   }
 
-  /* Ajustar grid de características */
   .grid.md\\:grid-cols-2.lg\\:grid-cols-4 {
     grid-template-columns: repeat(2, 1fr) !important;
     gap: 1rem !important;
   }
 }
 
-/* Mejoras de accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   .animate-float,
   .animate-rotate-slow,
@@ -426,14 +397,12 @@
   }
 }
 
-/* Estados de focus para accesibilidad */
 button:focus,
 .form-input:focus {
   outline: 2px solid #fbbf24;
   outline-offset: 2px;
 }
 
-/* Mejoras de contraste */
 @media (prefers-contrast: high) {
   .form-input {
     border-width: 2px;
@@ -446,7 +415,6 @@ button:focus,
   }
 }
 
-/* Efectos de carga */
 .loading-spinner {
   display: inline-block;
   width: 20px;
@@ -461,7 +429,6 @@ button:focus,
   to { transform: rotate(360deg); }
 }
 
-/* Tooltips y ayudas visuales */
 .tooltip {
   position: relative;
   cursor: help;

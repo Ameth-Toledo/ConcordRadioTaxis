@@ -25,7 +25,6 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
   private observer?: IntersectionObserver;
   private scrollListener?: () => void;
   
-  // Formulario de contacto
   contactForm: ContactForm = {
     nombre: '',
     telefono: '',
@@ -37,12 +36,10 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
     mensaje: ''
   };
 
-  // Estado del formulario
   isSubmitting = false;
   showSuccess = false;
   showError = false;
 
-  // Información de contacto
   contactInfo = {
     whatsapp: '9613037813',
     telefono: '961-303-7813',
@@ -71,9 +68,6 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  /**
-   * Obtener fecha de hoy en formato YYYY-MM-DD
-   */
   getTodayDate(): string {
     const today = new Date();
     const year = today.getFullYear();
@@ -82,9 +76,6 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
     return `${year}-${month}-${day}`;
   }
 
-  /**
-   * Enviar formulario por WhatsApp
-   */
   onSubmit(): void {
     if (this.isSubmitting) return;
 
@@ -96,7 +87,6 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
 
     this.isSubmitting = true;
     
-    // Simular delay de envío
     setTimeout(() => {
       this.sendWhatsAppMessage();
       this.isSubmitting = false;
@@ -107,17 +97,11 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
     }, 1000);
   }
 
-  /**
-   * Validar formulario
-   */
   private validateForm(): boolean {
     const { nombre, telefono, origen, destino, fecha, hora } = this.contactForm;
     return !!(nombre.trim() && telefono.trim() && origen.trim() && destino.trim() && fecha && hora);
   }
 
-  /**
-   * Enviar mensaje por WhatsApp
-   */
   private sendWhatsAppMessage(): void {
     const { nombre, telefono, origen, destino, fecha, hora, pasajeros, mensaje } = this.contactForm;
     
@@ -142,9 +126,6 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
     this.trackEvent('enviar_formulario_contacto', `${origen} → ${destino}`);
   }
 
-  /**
-   * Contacto directo por WhatsApp
-   */
   contactarWhatsApp(tipo: 'general' | 'emergencia' = 'general'): void {
     let mensaje = '';
     
@@ -160,17 +141,11 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
     this.trackEvent('contacto_directo', tipo);
   }
 
-  /**
-   * Llamar por teléfono
-   */
   llamarTelefono(): void {
     window.location.href = `tel:${this.contactInfo.whatsapp}`;
     this.trackEvent('llamar_telefono');
   }
 
-  /**
-   * Resetear formulario
-   */
   private resetForm(): void {
     this.contactForm = {
       nombre: '',
@@ -182,13 +157,9 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
       pasajeros: 1,
       mensaje: ''
     };
-    // Resetear también la fecha mínima
     this.setMinDateTime();
   }
 
-  /**
-   * Establecer fecha y hora mínima
-   */
   private setMinDateTime(): void {
     const now = new Date();
     const year = now.getFullYear();
@@ -198,9 +169,6 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
     this.contactForm.fecha = `${year}-${month}-${day}`;
   }
 
-  /**
-   * Formatear fecha para WhatsApp
-   */
   private formatDate(dateString: string): string {
     const date = new Date(dateString);
     const options: Intl.DateTimeFormatOptions = { 
@@ -212,9 +180,6 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
     return date.toLocaleDateString('es-MX', options);
   }
 
-  /**
-   * Inicializar Intersection Observer
-   */
   private initIntersectionObserver(): void {
     this.observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -235,9 +200,6 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
     }, 100);
   }
 
-  /**
-   * Efectos de scroll
-   */
   private initScrollEffects(): void {
     this.scrollListener = () => {
       const scrolled = window.pageYOffset;
@@ -263,9 +225,6 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
     window.addEventListener('scroll', throttledScrollListener, { passive: true });
   }
 
-  /**
-   * Tracking de eventos
-   */
   private trackEvent(action: string, label?: string): void {
     try {
       if (typeof window !== 'undefined' && (window as any).gtag) {
@@ -282,9 +241,6 @@ export class ContactoComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   }
 
-  /**
-   * Obtener horarios sugeridos
-   */
   getTimeSlots(): string[] {
     const slots = [];
     for (let hour = 6; hour <= 23; hour++) {

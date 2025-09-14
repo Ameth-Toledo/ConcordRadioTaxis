@@ -1,18 +1,39 @@
-/* Fuente Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-
-/* Estilos específicos para el componente header */
 :host {
   display: block;
   font-family: 'Poppins', sans-serif;
 }
 
-/* Estilos del menú móvil */
+header {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 9999 !important;
+  width: 100% !important;
+}
+
+@supports not (position: sticky) {
+  header {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 9999 !important;
+  }
+  
+  body {
+    padding-top: 80px;
+  }
+}
+
 .mobile-menu {
   display: none;
   transform: translateY(-20px);
   opacity: 0;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 9998;
 }
 
 .mobile-menu.active {
@@ -33,7 +54,6 @@
   }
 }
 
-/* Efectos de navegación */
 .nav-link {
   position: relative;
   overflow: hidden;
@@ -54,12 +74,10 @@
   left: 100%;
 }
 
-/* Efecto de brillo en el logo */
 .group:hover img {
   filter: brightness(120%) saturate(110%);
 }
 
-/* Animación del indicador online */
 @keyframes pulse-glow {
   0%, 100% {
     opacity: 1;
@@ -75,7 +93,6 @@
   animation: pulse-glow 2s infinite;
 }
 
-/* Efectos de botones */
 button {
   position: relative;
   overflow: hidden;
@@ -99,18 +116,29 @@ button:active::after {
   height: 300px;
 }
 
-/* Mejoras de backdrop blur */
 @supports (backdrop-filter: blur(20px)) {
   .backdrop-blur-xl {
     backdrop-filter: blur(20px) saturate(180%);
   }
 }
 
-/* Responsive Design */
+main, .main-content {
+  padding-top: 0;
+}
+
+.content-offset {
+  margin-top: 80px; 
+}
+
 @media (max-width: 1024px) {
   .container {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+  
+  :host {
+    position: -webkit-sticky !important;
+    position: sticky !important;
   }
 }
 
@@ -121,11 +149,16 @@ button:active::after {
   
   .mobile-menu {
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    max-height: calc(100vh - 80px);
+    overflow-y: auto;
   }
   
-  /* Simplificar efectos en móvil */
   .nav-link::before {
     display: none;
+  }
+  
+  .content-offset {
+    margin-top: 70px;
   }
 }
 
@@ -135,7 +168,6 @@ button:active::after {
     padding-right: 1rem;
   }
   
-  /* Logo más pequeño en móviles */
   img {
     width: 40px !important;
     height: 40px !important;
@@ -143,6 +175,10 @@ button:active::after {
   
   h1 {
     font-size: 1.25rem !important;
+  }
+  
+  .content-offset {
+    margin-top: 60px;
   }
 }
 
@@ -152,18 +188,15 @@ button:active::after {
     padding-right: 0.75rem;
   }
   
-  /* Ajustar espaciado en móviles muy pequeños */
   .space-x-4 {
     gap: 0.75rem !important;
   }
   
-  /* Ocultar elementos no esenciales */
   .hidden.md\\:block {
     display: none !important;
   }
 }
 
-/* Mejoras de accesibilidad */
 @media (prefers-reduced-motion: reduce) {
   .mobile-menu,
   .nav-link::before,
@@ -176,20 +209,17 @@ button:active::after {
   }
 }
 
-/* Estados de focus para accesibilidad */
 a:focus,
 button:focus {
   outline: 2px solid #fbbf24;
   outline-offset: 2px;
 }
 
-/* Gradientes suaves */
 .bg-clip-text {
   -webkit-background-clip: text;
   background-clip: text;
 }
 
-/* Efectos de hover mejorados */
 .group:hover .absolute.inset-0 {
   animation: glow-pulse 2s ease-in-out infinite;
 }
@@ -197,4 +227,9 @@ button:focus {
 @keyframes glow-pulse {
   0%, 100% { opacity: 0; }
   50% { opacity: 1; }
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px; 
 }
