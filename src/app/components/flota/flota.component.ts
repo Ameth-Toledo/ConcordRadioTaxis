@@ -38,7 +38,7 @@ export class FlotaComponent implements OnInit, AfterViewInit, OnDestroy {
 
   reservar(vehiculo: string): void {
     const mensaje = `Hola! Me interesa reservar un ${vehiculo} para un viaje. ¿Podrían darme información sobre tarifas y disponibilidad?`;
-    const numeroWhatsApp = '9613037813';
+    const numeroWhatsApp = '+529613037813';
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
     this.trackEvent('reservar_vehiculo', vehiculo);
     window.open(url, '_blank');
@@ -46,7 +46,7 @@ export class FlotaComponent implements OnInit, AfterViewInit, OnDestroy {
 
   contactarWhatsApp(): void {
     const mensaje = 'Hola! Me gustaría solicitar información sobre sus servicios de taxi. ¿Podrían ayudarme?';
-    const numeroWhatsApp = '9613037813';
+    const numeroWhatsApp = '+529613037813';
     const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
     this.trackEvent('contactar_whatsapp');
     window.open(url, '_blank');

@@ -143,4 +143,11 @@ export class HeaderComponent implements OnInit, OnDestroy {
       });
     }, 200); 
   }
+
+  scrollToContacto() {
+    const elemento = document.getElementById('contacto');
+    if (elemento) {
+      elemento.scrollIntoView({ behavior: 'smooth' }); 
+    }
+  }
 }
